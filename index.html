@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Libre+Franklin:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
+  <title>Frontend Mentor | Ping coming soon page</title>
+  <style>
+    /*---- General ----*/
+
+    :root {
+      font-size: 20px;
+      font-family: 'Libre Franklin';
+    }
+
+    * {
+      transition: all 0.5s ease;
+    }
+
+    *:hover {
+      transition: all 0.3s ease ;
+    }
+
+    body {
+      padding-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input, button {
+      margin: 0 0.2rem;
+      padding: 0.7rem 2rem;
+      font-size: 0.8rem;
+      border-radius: 1rem;
+    }
+
+    button, a {
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /*---- Media Queries ----*/
+
+    @media screen and (max-width: 800px) {
+      * {
+        max-width: 100%;
+      }
+
+      main {
+        box-sizing: border-box;
+        padding: 0 2rem;
+      }
+
+      h1 { font-size: 1.4rem !important;    }
+      h2 { font-size: 0.8rem !important;  }
+
+      [name=contact] {
+        flex-direction: column;
+      }
+
+      [type=email] {
+        min-width: unset !important;
+      }
+
+      input:not(:focus):invalid + span {
+        display: block;
+      }
+
+      input:not(:focus):invalid {
+        transition: background 0.5s ease;
+        border: 2px solid red;
+        background-image: url(images/icon-error.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-origin: content-box;
+      }
+
+      .invalid [type=submit] {
+        transition: all 0s ease;
+        margin-top: 1.6rem;
+      }
+    }
+
+    /*---- Main ----*/
+
+    main {
+      padding-top: 2rem;
+      text-align: center;
+    }
+
+    .logo {
+      height: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 span {
+      font-weight: 300;
+      color: #9D9D9D;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 300;
+      padding-bottom: 2rem;
+      margin: 0;
+    }
+
+    /*---- Form ----*/
+
+    [name=contact] {
+      display: flex;
+      justify-content: center;
+    }
+
+    .error-wrapper {
+      height: 3.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .error {
+      display: none;
+      position: relative;
+      top: 0.5rem;
+      left: 0.5rem;
+      text-align: left;
+      font-size: 0.8rem;
+      color: red;
+      font-weight: 500;
+    }
+
+    .invalid .error {
+      display: block;
+    }
+
+    [type=email] {
+      min-width: 15rem;
+      border-style: solid;
+      border-color: #CFD5E5;
+    }
+
+    ::placeholder {
+      color: #CFD5E5;
+    }
+
+    input:not(:focus):invalid {
+      transition: background 0.5s ease;
+      border: 2px solid red;
+    }
+
+    [type=submit] {
+      height: 2.5rem;
+      font-weight: 600;
+      color: white;
+      border: none;
+      background-color: #4C7DF3;
+      box-shadow: 0 0.3rem 0.5rem -5px #4C7DF3;
+    }
+
+    [type=submit]:hover {
+      opacity: 0.8;
+    }
+
+    /*---- Image ----*/
+
+    .dashboard {
+      max-height: 20rem;
+      margin: 3rem 0 2rem 0;
+    }
+
+    /*---- Footer ----*/
+
+    .social-network {
+      padding: 0 0 1rem 0;
+      text-align: center;
+    }
+
+    .fab {
+      min-width: 1rem;
+      padding: 0.5rem;
+      margin: 0 0.5rem;
+      color: #4C7DF3;
+      border: 1px solid lightgrey;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .fab:hover {
+      color: white;
+      background-color: #4C7DF3;
+    }
+
+    .attribution,
+    .copyright {
+      font-size: 0.5rem;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <img class="logo" src="images/logo.svg"/>
+
+    <h1><span>We are launching </span><b>soon!</b></h1>
+    <h2>Subscribe and get notified</h2>
+
+    <form name="contact">
+      <div class="error-wrapper">
+        <input type="email" placeholder="Your email address..." autofocus/>
+        <span class="error">Please provide a valid email</span>
+      </div>
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <img class="dashboard" src="images/illustration-dashboard.png">
+  </main>
+
+  <footer>
+    <section class="social-network">
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </section>
+    <p class="copyright">&copy; Copyright Ping. All rights reserved.</p>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+
+  <script type="text/javascript">
+
+  // toggle email error message
+  const contactForm  = document.querySelector('[name=contact');
+  const contactInput = document.querySelector('[type=email]');
+
+  contactInput.addEventListener('focusout', () =>
+    (!contactInput.checkValidity()) ? contactForm.classList.add("invalid") : ''
+  );
+
+  contactInput.addEventListener('focus', () => contactForm.classList.remove("invalid"));
+
+  </script>
+</body>
+</html>
